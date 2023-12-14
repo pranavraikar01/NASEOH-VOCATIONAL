@@ -1,5 +1,11 @@
+import Login from "./Pages/Login";
+
 function App() {
-  return <div>NASEOH</div>;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }
 
 export default App;
