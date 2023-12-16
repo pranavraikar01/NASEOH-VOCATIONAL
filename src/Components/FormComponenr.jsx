@@ -5,8 +5,9 @@ import styles from "./FormComponent.module.css";
 const formDataPages = [
   [
     { label: "Reg No", type: "text", name: "regno" },
-    { label: "Referred by", type: "text", name: "referredby" },
     { label: "Date of admission", type: "date", name: "doa" },
+    { label: "Referred by", type: "text", name: "referredby" },
+
     { label: "Date of completion", type: "date", name: "doc" },
   ],
   [

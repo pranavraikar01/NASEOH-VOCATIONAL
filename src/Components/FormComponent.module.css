@@ -3,26 +3,36 @@
   max-width: 600px;
   margin: auto;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  min-height: 100vh; /* Ensure the form takes at least the full height of the viewport */
 }
 
 .formGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  display: table;
+  width: 100%; /* Ensure the table takes the full width of the container */
+  border-collapse: separate;
+  border-spacing: 2px;
 }
 
 .formField {
-  display: flex;
-  flex-direction: column;
+  display: table-row;
 }
 
-label {
-  margin-bottom: 5px;
-}
-
+.label,
 .inputField {
+  display: table-cell;
   padding: 8px;
   font-size: 16px;
+  border: 1px solid #ddd; /* Add border for a table-like appearance */
+}
+
+.label {
+  text-align: right;
+  margin-right: 10px;
+  width: 150px; /* Adjust the width as needed */
 }
 
 .pagination {
