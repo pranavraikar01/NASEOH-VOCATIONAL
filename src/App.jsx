@@ -1,9 +1,11 @@
+import FormComponent from "./Components/FormComponenr";
 import Login from "./Pages/Login";
 
 function App() {
   return (
     <div>
-      <Login />
+      {/* <Login /> */}
+      <FormComponent />
     </div>
   );
 }

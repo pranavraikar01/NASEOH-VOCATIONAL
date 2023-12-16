@@ -1,0 +1,43 @@
+/* FormComponent.module.css */
+.formContainer {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+.inputField {
+  padding: 8px;
+  font-size: 16px;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #007bff;
+  color: #fff;
+}
