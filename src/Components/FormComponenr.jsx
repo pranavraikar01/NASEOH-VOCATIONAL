@@ -60,31 +60,33 @@ const formDataPages = [
     { label: "Mother's Income", type: "text", name: "motherincome" },
   ],
   [
-    { label: "Examination", type: "text", name: "examination" },
-    { label: "Year of passing", type: "text", name: "yop" },
-    { label: "Marks obtained", type: "text", name: "markobt" },
-    { label: "No of attempts", type: "number", name: "noa" },
-    { label: "Remarks", type: "text", name: "remarks" },
     {
-      label: "Name of the School/College attended till date",
-      type: "text",
-      name: "schoolname",
+      label: "SSC",
+      type: "group",
+      children: [
+        // { label: "SSC", type: "text", name: "examination1" },
+        { label: "Year of passing ", type: "text", name: "SSCpassingyear" },
+        { label: "Marks obtained ", type: "text", name: "SSCmarks" },
+      ],
     },
-    { label: "Year", type: "text", name: "schoolyear" },
-    { label: "Previous training", type: "text", name: "trainingcenter" },
     {
-      label: "Type of training received",
-      type: "text",
-      name: "typeoftraining",
+      label: "HSC",
+      type: "group",
+      children: [
+        // { label: "HSC", type: "text", name: "examination2" },
+        { label: "Year of passing 2", type: "text", name: "HSCpassingyear" },
+        { label: "Marks obtained 2", type: "text", name: "Hscmarks" },
+      ],
     },
-    { label: "Duration & Year", type: "text", name: "duration" },
-    { label: "Students stipend received", type: "number", name: "stipend" },
     {
-      label: "Comments on evidence of educational and training problem",
-      type: "text",
-      name: "comments",
+      label: "GRADUATION",
+      type: "group",
+      children: [
+        { label: "Graduation", type: "dropdown", name: "graduation" },
+        { label: "Year of passing", type: "text", name: "GraduationYear" },
+        { label: "Marks obtained", type: "text", name: "Graduationmarks" },
+      ],
     },
-    { label: "Any other", type: "text", name: "anyother" },
   ],
 ];
 
@@ -109,20 +111,74 @@ const FormComponent = () => {
     }));
   };
 
+  // Updated renderFormFields function
   const renderFormFields = () => {
     const currentPageData = formDataPages[currentPage - 1];
 
     return currentPageData.map((field, index) => (
       <div key={index} className={styles.formField}>
-        <label htmlFor={field.name}>{field.label}</label>
-        <input
-          type={field.type}
-          id={field.name}
-          name={field.name}
-          className={styles.formInput}
-          value={formData[field.name] || ""}
-          onChange={handleChange}
-        />
+        {field.type === "group" ? (
+          <>
+            <div className={styles.groupLabel}>{field.label}</div>
+            {field.children.map((child, childIndex) => (
+              <div key={childIndex} className={styles.formField}>
+                {child.type === "dropdown" ? (
+                  <>
+                    <label htmlFor={child.name}>{child.label}</label>
+                    <select
+                      id={child.name}
+                      name={child.name}
+                      className={styles.formInput}
+                      value={formData[child.name] || ""}
+                      onChange={handleChange}
+                    >
+                      <option value="BSC">BSC</option>
+                      <option value="BCOM">BCOM</option>
+                      <option value="BA">BA</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    {formData[child.name] === "Other" && (
+                      <div className={styles.formField}>
+                        <label htmlFor="specificGraduation">Other</label>
+                        <textarea
+                          id="specificGraduation"
+                          name="specificGraduation"
+                          className={styles.formInput}
+                          value={formData.specificGraduation || ""}
+                          onChange={handleChange}
+                        />
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <label htmlFor={child.name}>{child.label}</label>
+                    <input
+                      type={child.type}
+                      id={child.name}
+                      name={child.name}
+                      className={styles.formInput}
+                      value={formData[child.name] || ""}
+                      onChange={handleChange}
+                    />
+                  </>
+                )}
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            <label htmlFor={field.name}>{field.label}</label>
+            <input
+              type={field.type}
+              id={field.name}
+              name={field.name}
+              className={styles.formInput}
+              value={formData[field.name] || ""}
+              onChange={handleChange}
+            />
+          </>
+        )}
       </div>
     ));
   };
