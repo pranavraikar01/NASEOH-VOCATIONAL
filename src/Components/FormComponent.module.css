@@ -1,69 +1,58 @@
-body {
-    background-color: #F0F0F0; /* off-white color */
-  }
-  
-  .formContainer {
-    width: 80vw; /* 80% of viewport width */
-    height: 80vh; /* 80% of viewport height */
-    margin: 0; /* No margin */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the start */
-    justify-content: flex-start; /* Align content to the start */
-    background-color: #fff; /* white background for form */
-    border-radius: 20; /* No rounded corners for full screen form */
-    box-shadow: none; /* No shadow for full screen form */
-    overflow: auto; /* Add scrollbar when content overflows */
-  }
-  
-  .formGrid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%; /* Ensure the table takes the full width of the container */
-    justify-content: space-between; /* Evenly spaced labels */
-  }
-  
-  .formField {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 20px; /* space between fields */
-  }
-  
-  .label,
-  .inputField {
-    display: block;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ddd; /* Add border for a table-like appearance */
-    width: 100%; /* full width */
-  }
-  
-  .label {
-    text-align: left;
-    margin-bottom: 10px; /* space between label and input field */
-  }
-  
-  .pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  button {
-    margin: 0 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-  }
-  
-  .active {
-    background-color: #007bff;
-    color: #fff;
-  }
-  
-  .groupLabel {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+/* FormComponent.module.css */
+.formContainer {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  min-height: 100vh; /* Ensure the form takes at least the full height of the viewport */
+}
+
+.formGrid {
+  display: table;
+  width: 100%; /* Ensure the table takes the full width of the container */
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+
+.formField {
+  display: table-row;
+}
+
+.label,
+.inputField {
+  display: table-cell;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd; /* Add border for a table-like appearance */
+}
+
+.label {
+  text-align: right;
+  margin-right: 10px;
+  width: 150px; /* Adjust the width as needed */
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #007bff;
+  color: #fff;
+}
+/* FormComponent.module.css */
+.groupLabel {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
