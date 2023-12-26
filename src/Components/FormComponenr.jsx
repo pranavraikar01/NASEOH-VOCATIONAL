@@ -74,8 +74,8 @@ const formDataPages = [
       type: "group",
       children: [
         // { label: "HSC", type: "text", name: "examination2" },
-        { label: "Year of passing 2", type: "text", name: "HSCpassingyear" },
-        { label: "Marks obtained 2", type: "text", name: "Hscmarks" },
+        { label: "Year of passing", type: "text", name: "HSCpassingyear" },
+        { label: "Marks obtained", type: "text", name: "Hscmarks" },
       ],
     },
     {
