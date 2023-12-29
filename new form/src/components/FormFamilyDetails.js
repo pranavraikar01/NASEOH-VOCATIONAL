@@ -149,14 +149,13 @@ export default function FormContactDetails({
         {/* Existing fields */}
 
         {/* New fields for father's details */}
-        <TextField
-          id="outlined-basic"
-          label="Father's Name"
-          onChange={handleChange("fathername")}
-          variant="outlined"
-          className={classes.textField}
-        />
-
+          <TextField
+            id="outlined-basic"
+            label="Father's Name"
+            onChange={handleChange("fathername")}
+            variant="outlined"
+            className={classes.textField}
+          />
         <TextField
           id="outlined-basic"
           label="Father's Age"

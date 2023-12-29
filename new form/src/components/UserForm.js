@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import FormPersonalDetails from "./FormPersonalDetails";
 import FormContactDetails from "./FormFamilyDetails";
 import FormEducationDetails from "./FormEducationDetails";
+import Preference from "./Preference";
 
 import clsx from "clsx";
-import { makeStyles, withStyles } from "@material-ui/core/Styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -14,6 +15,7 @@ import StepConnector from "@material-ui/core/StepConnector";
 import PersonIcon from "@material-ui/icons/Person";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import SchoolIcon from "@material-ui/icons/School";
+import AssignmentIcon from '@material-ui/icons/Assignment';
 
 import "../styles/form-style.css";
 
@@ -69,6 +71,7 @@ function ColorlibStepIcon(props) {
     1: <PersonIcon />,
     2: <SupervisorAccountIcon />,
     3: <SchoolIcon />,
+    4: <AssignmentIcon/>
   };
 
   return (
@@ -87,6 +90,7 @@ function getSteps() {
     "Insert personal information",
     "Insert Family Details",
     "Insert Educational information",
+    "Choose your preference",
   ];
 }
 export default function UserForm() {
@@ -325,10 +329,37 @@ export default function UserForm() {
         </>
       );
 
+      case 4:
+        return (
+          <>
+            <div className="App-header">
+              <Stepper
+                alternativeLabel
+                activeStep={step}
+                connector={<ColorlibConnector />}
+              >
+                {steps.map((label) => (
+                  <Step key={label}>
+                    <StepLabel StepIconComponent={ColorlibStepIcon}>
+                      {label}
+                    </StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
+              <p className={styles.p}>Select your preferences</p>
+              <Preference>
+                previousStep={previousStep}
+                handleChange={handleChange}
+                values={values}
+              </Preference>
+            </div>
+          </>
+        );
+
     default:
       return (
         <div>
-          <h1>Não existe</h1>
+          <h1>Does not exist!</h1>
         </div>
       );
   }

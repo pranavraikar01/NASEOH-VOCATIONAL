@@ -130,8 +130,12 @@ import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    margin: "10px 0",
-    width: "70%", // Adjust the width as needed
+    margin: "10px 10px 10px 10px",
+    width: "90%", // Adjust the width as needed
+  },
+  historyField: {
+    margin: "10px 10px 10px 10px",
+    width: "95%", // Adjust the width as needed
   },
   buttonColor: {
     width: "100px",
@@ -140,6 +144,12 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     marginTop: "20px",
   },
+  spaceBetweenBtn: {
+    width: "75%",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+
 }));
 
 export default function FormEducationDetails({
@@ -164,7 +174,7 @@ export default function FormEducationDetails({
       <form>
         {/* First Row */}
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <TextField
               id="outlined-basic"
               label="Reg No"
@@ -173,6 +183,17 @@ export default function FormEducationDetails({
               className={classes.textField}
             />
           </Grid>
+
+          <Grid item xs={6}>
+            <TextField
+              id="outlined-basic"
+              label="Referred by"
+              onChange={handleChange("referredby")}
+              variant="outlined"
+              className={classes.textField}
+            />
+          </Grid>
+
           <Grid item xs={6}>
             <InputLabel>Date of Admission</InputLabel>
             <TextField
@@ -183,15 +204,7 @@ export default function FormEducationDetails({
               className={classes.textField}
             />
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              id="outlined-basic"
-              label="Referred by"
-              onChange={handleChange("referredby")}
-              variant="outlined"
-              className={classes.textField}
-            />
-          </Grid>
+        
           <Grid item xs={6}>
             <InputLabel>Date of Completion</InputLabel>
             <TextField
@@ -206,7 +219,7 @@ export default function FormEducationDetails({
 
         {/* Second Row */}
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <TextField
               id="outlined-basic"
               label="Full Name"
@@ -215,6 +228,18 @@ export default function FormEducationDetails({
               className={classes.textField}
             />
           </Grid>
+
+          <Grid item xs={6}>
+            <TextField
+              id="outlined-basic"
+              label="Phone"
+              type="tel"
+              onChange={handleChange("phone")}
+              variant="outlined"
+              className={classes.textField}
+            />
+          </Grid>
+
           <Grid item xs={6}>
             <TextField
               id="outlined-basic"
@@ -233,21 +258,12 @@ export default function FormEducationDetails({
               className={classes.textField}
             />
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              id="outlined-basic"
-              label="Phone"
-              type="tel"
-              onChange={handleChange("phone")}
-              variant="outlined"
-              className={classes.textField}
-            />
-          </Grid>
+          
         </Grid>
 
         {/* Third Row */}
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <TextField
               id="outlined-basic"
               label="Aadhar Card Number"
@@ -316,19 +332,7 @@ export default function FormEducationDetails({
               className={classes.textField}
             />
           </Grid>
-          <Grid item xs={6}>
-            <TextField
-              id="outlined-basic"
-              label="History of Present Problem"
-              onChange={handleChange("problemhistory")}
-              variant="outlined"
-              className={classes.textField}
-            />
-          </Grid>
-        </Grid>
 
-        {/* Fifth Row */}
-        <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
               id="outlined-basic"
@@ -338,6 +342,21 @@ export default function FormEducationDetails({
               className={classes.textField}
             />
           </Grid>
+        </Grid>
+
+        {/* Fifth Row */}
+        <Grid container spacing={2}>
+        
+        <Grid item xs={12}>
+            <TextField
+              id="outlined-basic"
+              label="History of Present Problem"
+              onChange={handleChange("problemhistory")}
+              variant="outlined"
+              className={classes.historyField}
+            />
+          </Grid>
+          
           <Grid item xs={6}>
             <TextField
               id="outlined-basic"
@@ -356,20 +375,21 @@ export default function FormEducationDetails({
               className={classes.textField}
             />
           </Grid>
+        </Grid>
+
+        {/* Sixth Row */}
+        <Grid container spacing={2}>
           <Grid item xs={6}>
             <TextField
               id="outlined-basic"
-              label="Vocational Rehabilitation Centre Reg. No"
+              label="Vocational Rehabilitation Centre Reg.No"
               onChange={handleChange("rehabno")}
               variant="outlined"
               className={classes.textField}
             />
           </Grid>
-        </Grid>
 
-        {/* Sixth Row */}
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <TextField
               id="outlined-basic"
               label="Special Employee Exchange No"

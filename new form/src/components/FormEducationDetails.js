@@ -116,13 +116,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
-import { Box } from "@material-ui/core";
+import { Box, InputLabel } from "@material-ui/core";
 import Confirm from "./Confirm";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
-    margin: "10px",
-    width: "75%",
+    margin: "10px 10px 10 10px",
+    width: "95%",
   },
   buttonColor: {
     width: "100px",
@@ -137,7 +137,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FormEducationDetails({ previousStep, handleChange }) {
+export default function FormEducationDetails({ nextStep,previousStep, handleChange }) {
   const [openDialog, setOpenDialog] = useState(false);
 
   const classes = useStyles();
@@ -145,6 +145,11 @@ export default function FormEducationDetails({ previousStep, handleChange }) {
   const prev = (e) => {
     e.preventDefault();
     previousStep();
+  };
+
+  const next = (e) => {
+    e.preventDefault();
+    nextStep();
   };
 
   const handleBtnClick = () => {
@@ -160,6 +165,7 @@ export default function FormEducationDetails({ previousStep, handleChange }) {
           <tbody>
             {/* Row 1: SSC */}
             <tr>
+              
               <td>
                 <TextField
                   id="outlined-basic"
@@ -222,7 +228,11 @@ export default function FormEducationDetails({ previousStep, handleChange }) {
                   className={classes.textField}
                 />
               </td>
-              <td>
+             
+            </tr>
+
+            <tr>
+            <td>
                 <TextField
                   id="outlined-basic"
                   select
@@ -256,11 +266,20 @@ export default function FormEducationDetails({ previousStep, handleChange }) {
           variant="contained"
           color="primary"
           className={classes.buttonColor}
+          onClick={next}
+        >
+          {" "}
+          Next{" "}
+        </Button>
+        {/* <Button
+          variant="contained"
+          color="primary"
+          className={classes.buttonColor}
           onClick={() => handleBtnClick()}
         >
           {" "}
           Send{" "}
-        </Button>
+        </Button> */}
       </Box>
       <Box>{openDialog ? <Confirm value={openDialog}> </Confirm> : null}</Box>
     </>
